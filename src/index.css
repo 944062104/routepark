@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Playfair Display", Georgia, ui-serif, serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+@layer utilities {
+  /* Dynamic custom keyframe animations */
+  @keyframes breathe {
+    0%, 100% {
+      opacity: 0.4;
+      transform: scale(0.95);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.15);
+    }
+  }
+
+  @keyframes pulse-gentle {
+    0%, 100% {
+      transform: scale(1);
+      box-shadow: 0 0 0 0 rgba(217, 4, 41, 0.4);
+    }
+    50% {
+      transform: scale(1.02);
+      box-shadow: 0 0 12px 4px rgba(217, 4, 41, 0.15);
+    }
+  }
+
+  .animate-status-breathe {
+    animation: breathe 2s infinite ease-in-out;
+  }
+
+  .animate-cta-pulse {
+    animation: pulse-gentle 2.5s infinite ease-in-out;
+  }
+
+  /* Editorial theme components */
+  .dot-grid {
+    background-image: radial-gradient(#0B3D91 0.75px, transparent 0.75px);
+    background-size: 20px 20px;
+    opacity: 0.05;
+  }
+
+  .glass-card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(11, 61, 145, 0.1);
+  }
+
+  .calculator-shadow {
+    box-shadow: 0 10px 25px -5px rgba(11, 61, 145, 0.1), 0 8px 10px -6px rgba(11, 61, 145, 0.1);
+  }
+}
+
+/* Base style touches */
+html, body {
+  font-family: var(--font-sans);
+  scroll-behavior: smooth;
+  background-color: #fcfcfc;
+  color: #1a1a1a;
+  overflow-x: hidden;
+}
+
