@@ -5,8 +5,8 @@
 
 import { CaseStudy, FAQItem, ProductItem, AuditCriteria } from "./types";
 
-export const WECHAT_ID = "routepark888";
-export const HOTLINE_PHONE = "400-882-5959"; // Sample hotline following standard format, plus a nice placeholder format
+export const WECHAT_ID = "Moj88888888";
+export const HOTLINE_PHONE = "13427602324";
 
 export const AUDIT_DATA: AuditCriteria[] = [
   {
