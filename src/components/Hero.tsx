@@ -39,7 +39,7 @@ export default function Hero({ onOpenWeChat }: HeroProps) {
           </h2>
 
           <p className="text-slate-300 text-sm sm:text-base leading-relaxed max-w-2xl">
-            途泊（RoutePark）是面向全国患者家属构建的非急救重症居间比价网。我们不是单一车队，而是您在危急重症跨区域转送时的<strong>“专属经纪人”</strong>。协助您在数千家特种持牌运力中，一键检索最经济的返程车辆，安全一包到底。
+            途泊（RoutePark）是面向全国患者家属构建的非急救重症转运调度协助网。我们不是单一车队，而是您在危急重症跨区域转送时的<strong>”专属调度顾问”</strong>。协助您在全国合规持牌运力中，快速匹配最优车辆与方案，安全护送到位。
           </p>
 
           {/* Golden Tridents Promise with Green Color (#009688) */}
@@ -67,7 +67,7 @@ export default function Hero({ onOpenWeChat }: HeroProps) {
                   ⚡ 【5分钟出车响应锁定】
                 </p>
                 <p className="text-xs sm:text-sm text-slate-300 mt-1">
-                  动态检索全国干线在执行车辆路线，24小时为家属锁定就就近车队或省钱“返程空驶车”名额。
+                  动态检索全国干线在执行车辆路线，24小时为家属锁定就近可用合规车辆。
                 </p>
               </div>
             </div>
@@ -78,10 +78,10 @@ export default function Hero({ onOpenWeChat }: HeroProps) {
               </div>
               <div>
                 <p className="font-bold text-white text-[15px] sm:text-base flex items-center col-span-1">
-                  💰 【全程一口价包干制合同】
+                  💰 【全程透明定价合同】
                 </p>
                 <p className="text-xs sm:text-sm text-slate-300 mt-1">
-                  预先签署包干保障，包括油耗、过路费、过桥费、医护补助，严厉杜绝任何路途坐地起价。
+                  签署正规服务合同，费用明细清晰透明，严厉杜绝任何路途坐地起价。
                 </p>
               </div>
             </div>

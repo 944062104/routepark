@@ -113,7 +113,7 @@ export default function Calculator() {
           </div>
 
           <h3 className="text-2xl sm:text-3xl font-black text-[#0B3D91] tracking-tight leading-tight font-serif italic">
-            获取全国合作车队实时底价及空车回程返程价预估
+            获取全国合作车队实时底价预估
           </h3>
 
           <p className="text-slate-600 text-sm leading-relaxed">
@@ -127,11 +127,11 @@ export default function Calculator() {
             </div>
             <div className="flex items-center space-x-2">
               <span className="w-2 h-2 rounded-full bg-[#009688]"></span>
-              <span>匹配呼吸机、加温湿化、ECMO、暖箱等随车参数</span>
+              <span>匹配呼吸机、加温湿化、暖箱等随车参数</span>
             </div>
             <div className="flex items-center space-x-2">
               <span className="w-2 h-2 rounded-full bg-[#009688]"></span>
-              <span>五分钟调档当天对流车，核销空跑油资扣除额</span>
+              <span>五分钟匹配最近可用合规车辆，智能优化调度成本</span>
             </div>
           </div>
 
@@ -142,7 +142,7 @@ export default function Calculator() {
               途泊特惠通知：
             </span>
             <p className="text-xs text-slate-600 leading-normal">
-              目前系统调度数据库正对北方以及南方三大核心干线返空救护车辆进行集中拼柜排表，输入您的手机后，系统将同时开始搜罗是否有适合您路径的回头车。
+              目前系统正在为您的路线匹配全国最优调度方案，输入手机后，专属顾问将为您锁定最优报价。
             </p>
           </div>
         </div>
@@ -233,7 +233,7 @@ export default function Calculator() {
                     type="tel"
                     required
                     pattern="^1[3-9]\d{9}$"
-                    placeholder="用于接收最终车队包干比价结果及合同方案"
+                    placeholder="用于接收最终车队比价结果及合同方案"
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
                     className="w-full text-slate-800 placeholder-slate-400 bg-slate-50 border border-slate-200 rounded-xl pl-9 pr-3 py-2.5 text-sm focus:bg-white focus:border-[#0B3D91] focus:ring-1 focus:ring-[#0B3D91] transition-all outline-none font-medium"
@@ -270,7 +270,7 @@ export default function Calculator() {
                 <CheckCircle className="h-5 w-5 text-emerald-600 flex-none" />
                 <div>
                   <h5 className="font-extrabold text-xs sm:text-sm">询价信息提交成功 & 调度网自动派单已触发！</h5>
-                  <p className="text-[11px] text-emerald-700 mt-0.5">途泊网络专属转送协调顾问已为您拦截就近及返程空驶车，请留意电话。</p>
+                  <p className="text-[11px] text-emerald-700 mt-0.5">途泊网络专属转送协调顾问已为您匹配最近可用合规车辆，请留意电话。</p>
                 </div>
               </div>
 
@@ -303,7 +303,7 @@ export default function Calculator() {
                     ¥{priceMin.toLocaleString()} - ¥{priceMax.toLocaleString()} 元
                   </div>
                   <span className="text-[10px] text-slate-500 block">
-                    (包干全价：含高速油耗、路桥通行费、急救医护跟随折补一包到底)
+                    (全价：含高速油耗、路桥通行费、急救医护跟随一包到底)
                   </span>
                 </div>
               </div>
@@ -322,10 +322,10 @@ export default function Calculator() {
                 <ol className="list-decimal list-inside space-y-1 pl-1 mb-3 text-slate-700">
                   <li>转运当天的天气、公路状况以及是否需要临时合理绕行避堵；</li>
                   <li>患者长途监护途中是否需要加用呼吸机、除颤仪系统、高浓度制氧钢瓶或携带特殊ICU抢救药物；</li>
-                  <li>最关键的：<strong>当天您所选择路线上是否有空闲或者正返程空载的合规“返程优惠车”名额。</strong></li>
+                  <li>最关键的：<strong>当前路线可调配的合规车辆资源情况。</strong></li>
                 </ol>
                 <p className="text-[#0B3D91] font-bold">
-                  为保障价格的绝对准确与安全，途泊专属调度顾问正在为您向各大合作特种执照车队调取实时内部底价，将在 5分钟内 电话联系您（手机：{phone}），为您出具最终包干方案并申请返程车折扣。请保持电话畅通。
+                  为保障价格的绝对准确与安全，途泊专属调度顾问正在为您向各大合作特种执照车队调取实时内部底价，将在 5分钟内 电话联系您（手机：{phone}），为您出具最终方案并申请最优调度报价。请保持电话畅通。
                 </p>
               </div>
 

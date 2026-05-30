@@ -160,7 +160,7 @@ export default function WeChatModal({ isOpen, onClose }: WeChatModalProps) {
               </div>
             </div>
             <span className="text-[11px] text-slate-400 mt-2 text-center leading-normal px-4">
-              （温馨提醒：业务顾问正在为您检索就近的空闲救护车与返程优惠车，添加微信后请立刻发送起止医院，我们将优先为您锁单。）
+              （温馨提醒：业务顾问正在为您匹配就近的合规救护车辆，添加微信后请立刻发送起止医院，我们将优先为您锁单。）
             </span>
           </div>
 

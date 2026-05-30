@@ -25,7 +25,7 @@ export default function Products({ onQuickInquiry }: ProductsProps) {
         </h2>
         
         <p className="text-slate-500 text-sm mt-3 leading-relaxed">
-          途泊调度网络支持包括陆路奔驰长途救护车、高铁绿通、空中医疗客专机等在内的综合运输形式。一站式解决多重气候、超长距离、过急时空等极限安全转驳条件。
+          途泊调度网络支持包括陆路福特长途救护车、高铁绿通、空中医疗客专机等在内的综合运输形式。一站式解决多重气候、超长距离、过急时空等极限安全转驳条件。
         </p>
       </div>
 

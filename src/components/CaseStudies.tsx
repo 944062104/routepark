@@ -21,7 +21,7 @@ export default function CaseStudies() {
         </h2>
         
         <p className="text-slate-500 text-sm mt-3 leading-relaxed">
-          “救护车长途行驶，由于涉及两端城市，空驶费（即执行车单向放空跑返）占比非常高。途泊通过全域合规网络动态拼单对流，协助家属合理规避单向空负载空耗费。”
+          传统救护车公司缺乏全国调度网络，定价缺乏竞争透明度。途泊通过全国合规运力调度系统，多家车队竞标出价，协助家属获得最优性价比方案。
         </p>
       </div>
 
@@ -50,7 +50,7 @@ export default function CaseStudies() {
                 </div>
                 <div className="flex items-center space-x-1 text-xs text-slate-500 font-bold bg-white px-2.5 py-1 rounded-lg border border-slate-200/40">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-                  <span>已签署一揽子包干转运保障</span>
+                  <span>已签署转运服务保障合同</span>
                 </div>
               </div>
 
@@ -93,7 +93,7 @@ export default function CaseStudies() {
                   {/* Leverage Strategy */}
                   <div className="border-l-4 border-emerald-500 bg-emerald-50/40 p-3.5 rounded-r-xl">
                     <span className="text-emerald-700 text-xs font-bold block mb-1">
-                      💡 途泊大数据网中介协调调货方案：
+                      💡 途泊专业调度顾问最优方案：
                     </span>
                     <p className="text-xs text-emerald-950 leading-relaxed">
                       {study.strategy}
@@ -106,7 +106,7 @@ export default function CaseStudies() {
                   <div>
                     <h4 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3 pb-2 border-b border-slate-100 flex items-center space-x-1.5">
                       <Receipt className="h-3.5 w-3.5 text-slate-400" />
-                      <span>方案配置及包干预算核销表</span>
+                      <span>方案配置及预算核销表</span>
                     </h4>
 
                     {/* Configuration List */}
@@ -138,7 +138,7 @@ export default function CaseStudies() {
                   {/* Contrast Bar Graph Representation */}
                   <div className="bg-slate-50 p-4 rounded-xl border border-slate-150 space-y-3">
                     <div className="flex items-center justify-between text-xs text-slate-400">
-                      <span>传统单向车估算市场价(包含空驶费)</span>
+                      <span>传统市场估算价</span>
                       <del className="font-bold text-slate-600 font-mono">
                         ¥{study.details.originalPrice.toLocaleString()}
                       </del>
@@ -147,7 +147,7 @@ export default function CaseStudies() {
                     <div className="flex items-center justify-between text-sm text-slate-800 border-t border-slate-200/60 pt-2.5">
                       <span className="font-bold text-[#0B3D91] flex items-center space-x-1">
                         <TrendingDown className="h-4 w-4 text-emerald-500 animate-bounce" />
-                        <span>途泊一包到底合同审定价</span>
+                        <span>途泊协调审定价</span>
                       </span>
                       <strong className="text-xl font-mono text-[#D90429] tracking-tight">
                         ¥{study.details.price.toLocaleString()}
@@ -158,7 +158,7 @@ export default function CaseStudies() {
                     <div className="bg-emerald-500/10 border border-emerald-500/20 text-emerald-800 px-3 py-2 rounded-lg flex items-center justify-between text-xs font-bold">
                       <span className="flex items-center space-x-1">
                         <Flame className="h-3.5 w-3.5 text-emerald-600" />
-                        <span>途泊返程协调帮家属省钱</span>
+                        <span>途泊全国调度网络帮家属省钱</span>
                       </span>
                       <span>
                         省下 ¥{savings.toLocaleString()} ({savingsPercent}% 降幅)
