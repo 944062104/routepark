@@ -25,11 +25,11 @@ export default function App() {
   // Dynamic rolling ticket simulator to mock real nationwide dispatch activity
   const [tickerIndex, setTickerIndex] = useState(0);
   const tickerLogs = [
-    "🔥 1分钟前: 途泊成功协调 长沙 ➡️ 广州 福特V348 ICU移动监护车，已为家属签署 ¥11,200 全包合同",
-    "⚡ 5分钟前: 途泊成功协调并申请下 5月30日 武汉 ➡️ 上海 儿科重症绿色高铁通道无缝空铁接送专线",
+    "🔥 1分钟前: 调度成功匹配 长沙 ➡️ 广州 返空优惠奔驰ICU轿跑监护车，已为家属签署 ¥11,200 全包干合同",
+    "⚡ 5分钟前: 调度成功协调并申请下 5月30日 武汉 ➡️ 上海 儿科重症绿色高铁通道无缝空铁接送专线",
     "🩺 12分钟前: 航空包机急救专机部：成功对接 北京天坛医院 ICU 与 昆明 远程空中ICU转运，航管飞行批准备案已完成",
     "🟢 20分钟前: 粤港双牌专通道：协助完成 香港玛丽医院 ➡️ 深圳三甲医院 免下车通关绿色重症送舱接回",
-    "⚡ 1小时前: 调度网络锁定一台北方可用的福特V348危重监护车，下达返乡患者家属 ¥8,900 比价单"
+    "⚡ 1小时前: 调度网络锁定一台北方返空山东的 Sprinter 危重奔驰车，已全额核减空驶消耗，下达返乡患者家属 ¥8,900 比价单"
   ];
 
   useEffect(() => {
@@ -98,20 +98,20 @@ export default function App() {
       {/* Main Core View Area */}
       <main className="flex-grow flex flex-col">
         
-        {/* Banner 1: Gold Hero Segment */}
+        {/* Banner 1: Interactive smart budget calculator widget */}
+        <Calculator />
+
+        {/* Banner 2: Gold Hero Segment */}
         <Hero onOpenWeChat={() => setWechatOpen(true)} />
 
-        {/* Banner 2: Platform Compliance Audit criteria */}
+        {/* Banner 3: Platform Compliance Audit criteria */}
         <AuditPanel />
 
-        {/* Banner 3: Integrated Multi-mode Product catalog */}
+        {/* Banner 4: Integrated Multi-mode Product catalog */}
         <Products onQuickInquiry={handleQuickInquiry} />
 
-        {/* Banner 4: Calculated Real Reduction Cases studies */}
+        {/* Banner 5: Calculated Real Reduction Cases studies */}
         <CaseStudies />
-
-        {/* Banner 5: Interactive smart budget calculator widget */}
-        <Calculator />
 
         {/* Banner 6: SEO GEO FAQs */}
         <FAQ />
@@ -128,7 +128,7 @@ export default function App() {
       {showScrollTop && (
         <button
           onClick={handleScrollTop}
-          className="hidden md:flex fixed bottom-24 right-6 z-30 p-3 bg-white hover:bg-slate-50 border border-slate-200 text-[#0B3D91] rounded-full shadow-lg transition-all active:scale-95 cursor-pointer"
+          className="hidden md:flex fixed bottom-24 right-6 z-30 p-3 bg-white hover:bg-slate-50 border border-slate-200 text-[#1058D1] rounded-full shadow-lg transition-all active:scale-95 cursor-pointer"
           title="回滚顶部"
         >
           <ArrowUp className="w-5 h-5" />

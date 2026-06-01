@@ -56,12 +56,12 @@ export default function WeChatModal({ isOpen, onClose }: WeChatModalProps) {
       <div className="relative w-full max-w-md overflow-hidden rounded-2xl bg-white shadow-2xl transition-all duration-300 transform scale-100 border border-slate-100">
         
         {/* Header decoration banner */}
-        <div className="bg-[#0B3D91] px-6 py-4 text-white flex items-center justify-between">
+        <div className="bg-[#1058D1] px-6 py-4 text-white flex items-center justify-between">
           <div className="flex items-center space-x-2">
             <div className="rounded-full bg-emerald-500/20 p-1 flex items-center justify-center text-emerald-400">
               <Check className="h-4 w-4" />
             </div>
-            <span className="font-semibold text-sm tracking-wide">途泊顾问微信添加指引</span>
+            <span className="font-semibold text-sm tracking-wide">专属顾问微信添加指引</span>
           </div>
           <button 
             type="button" 
@@ -106,7 +106,7 @@ export default function WeChatModal({ isOpen, onClose }: WeChatModalProps) {
                 1
               </span>
               <p className="text-[13px] leading-relaxed">
-                如果您正在使用<strong className="text-[#0B3D91]">手机端</strong>：请返回桌面打开<strong>微信</strong>，点击搜索框，直接“长按粘贴”微信号并添加。
+                如果您正在使用<strong className="text-[#1058D1]">手机端</strong>：请返回桌面打开<strong>微信</strong>，点击搜索框，直接“长按粘贴”微信号并添加。
               </p>
             </div>
             <div className="flex gap-2.5">
@@ -114,7 +114,7 @@ export default function WeChatModal({ isOpen, onClose }: WeChatModalProps) {
                 2
               </span>
               <p className="text-[13px] leading-relaxed">
-                若是<strong className="text-[#0B3D91]">电脑/平板/微信浏览器</strong>：可直接长按下方二维码，极速识别或使用手机微信扫描。
+                若是<strong className="text-[#1058D1]">电脑/平板/微信浏览器</strong>：可直接长按下方二维码，极速识别或使用手机微信扫描。
               </p>
             </div>
           </div>
@@ -124,10 +124,10 @@ export default function WeChatModal({ isOpen, onClose }: WeChatModalProps) {
             <div className="relative bg-white p-3 rounded-lg border border-slate-200/60 shadow-sm w-36 h-36 flex items-center justify-center">
               {/* QR Code graphic drawing using SVG for instant beautiful resolution */}
               <div className="absolute inset-0 m-4 flex flex-col items-center justify-center opacity-10">
-                <QrCode className="w-full h-full text-[#0B3D91]" />
+                <QrCode className="w-full h-full text-[#1058D1]" />
               </div>
               <div className="z-10 flex flex-col items-center text-center">
-                <span className="text-xs font-bold text-slate-800 tracking-tight">RoutePark</span>
+                <span className="text-xs font-bold text-slate-800 tracking-tight">微信咨询</span>
                 {/* Simulated QR Code pixels via elegant blocks for consistent load without broken image assets */}
                 <div className="grid grid-cols-5 gap-1.5 w-20 h-20 my-1 justify-center">
                   <div className="bg-slate-800 rounded"></div>
@@ -140,10 +140,10 @@ export default function WeChatModal({ isOpen, onClose }: WeChatModalProps) {
                   <div className="bg-slate-800 rounded"></div>
                   <div className="bg-transparent"></div>
                   <div className="bg-slate-800 rounded"></div>
-                  <div className="bg-[#0B3D91] rounded"></div>
+                  <div className="bg-[#1058D1] rounded"></div>
                   <div className="bg-slate-800 rounded"></div>
-                  <div className="bg-[#0B3D91] rounded"></div>
-                  <div className="bg-[#0B3D91] rounded"></div>
+                  <div className="bg-[#1058D1] rounded"></div>
+                  <div className="bg-[#1058D1] rounded"></div>
                   <div className="bg-slate-800 rounded"></div>
                   <div className="bg-slate-800 rounded"></div>
                   <div className="bg-transparent"></div>
@@ -156,11 +156,11 @@ export default function WeChatModal({ isOpen, onClose }: WeChatModalProps) {
                   <div className="bg-slate-800 rounded"></div>
                   <div className="bg-slate-800 rounded"></div>
                 </div>
-                <span className="text-[10px] font-mono font-bold text-slate-400">途泊专属咨询码</span>
+                <span className="text-[10px] font-mono font-bold text-slate-400">专属咨询码</span>
               </div>
             </div>
             <span className="text-[11px] text-slate-400 mt-2 text-center leading-normal px-4">
-              （温馨提醒：业务顾问正在为您匹配就近的合规救护车辆，添加微信后请立刻发送起止医院，我们将优先为您锁单。）
+              （温馨提醒：业务顾问正在为您检索就近的空闲救护车与返程优惠车，添加微信后请立刻发送起止医院，我们将优先为您锁单。）
             </span>
           </div>
 
@@ -168,7 +168,7 @@ export default function WeChatModal({ isOpen, onClose }: WeChatModalProps) {
           <button
             type="button"
             onClick={onClose}
-            className="w-full py-3 bg-[#0B3D91] hover:bg-[#082a66] active:bg-[#051c44] text-white rounded-xl font-bold text-sm tracking-wide shadow-md shadow-blue-900/10 transition-all text-center"
+            className="w-full py-3 bg-[#1058D1] hover:bg-[#0d4fbd] active:bg-[#0a41a1] text-white rounded-xl font-bold text-sm tracking-wide shadow-md shadow-blue-900/10 transition-all text-center"
           >
             我知道了，现在去客户端添加
           </button>

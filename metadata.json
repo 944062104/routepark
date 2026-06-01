@@ -1,6 +1,6 @@
 {
   "name": "RoutePark 途泊转运协助网",
   "description": "途泊非急救医疗转运协调网 - 提供跨省转院、重症送返、高铁或空地一体化转运协助",
-  "requestFramePermissions": [],
+  "requestFramePermissions": ["geolocation"],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

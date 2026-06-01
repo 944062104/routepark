@@ -17,8 +17,8 @@ export default function Header({ onOpenWeChat }: HeaderProps) {
       {/* Left side brand logo */}
       <div className="flex flex-col justify-center">
         <div className="flex items-center space-x-1.5">
-          <ShieldCheck className="h-4 w-4 text-[#0B3D91]" />
-          <h1 className="text-base font-bold text-[#0B3D91] tracking-tight">
+          <ShieldCheck className="h-4 w-4 text-[#1058D1]" />
+          <h1 className="text-base font-bold text-[#1058D1] tracking-tight">
             RoutePark 途泊转运协调网
           </h1>
         </div>

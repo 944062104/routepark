@@ -41,7 +41,7 @@
 
   /* Editorial theme components */
   .dot-grid {
-    background-image: radial-gradient(#0B3D91 0.75px, transparent 0.75px);
+    background-image: radial-gradient(#1058D1 0.75px, transparent 0.75px);
     background-size: 20px 20px;
     opacity: 0.05;
   }
@@ -49,11 +49,11 @@
   .glass-card {
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(11, 61, 145, 0.1);
+    border: 1px solid rgba(16, 88, 209, 0.1);
   }
 
   .calculator-shadow {
-    box-shadow: 0 10px 25px -5px rgba(11, 61, 145, 0.1), 0 8px 10px -6px rgba(11, 61, 145, 0.1);
+    box-shadow: 0 10px 25px -5px rgba(16, 88, 209, 0.1), 0 8px 10px -6px rgba(16, 88, 209, 0.1);
   }
 }
 
