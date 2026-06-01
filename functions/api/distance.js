@@ -24,7 +24,7 @@ export async function onRequestGet(context) {
       });
     }
 
-    const ak = context.env.BAIDU_MAP_AK || context.env.VITE_BAIDU_MAP_AK || "De3bd311138db99321e16b9b3e643b06";
+    const ak = context.env.BAIDU_MAP_AK || context.env.VITE_BAIDU_MAP_AK || "B5Mp8mMZu5HN1yV0m9rBScBEusT7HHcC";
     
     // Check if origin and destination are coordinates (lat,lng format)
     const coordReg = /^-?[0-9.]+,-?[0-9.]+$/;

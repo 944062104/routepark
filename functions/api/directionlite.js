@@ -12,7 +12,7 @@ export async function onRequestGet(context) {
       });
     }
 
-    const ak = context.env.BAIDU_MAP_AK || context.env.VITE_BAIDU_MAP_AK || "MAyRHX2nmGjYgive3WmBoyqM3WXGh66U";
+    const ak = context.env.BAIDU_MAP_AK || context.env.VITE_BAIDU_MAP_AK || "B5Mp8mMZu5HN1yV0m9rBScBEusT7HHcC";
     const baiduUrl = `https://api.map.baidu.com/directionlite/v1/driving?origin=${encodeURIComponent(origin)}&destination=${encodeURIComponent(destination)}&ak=${ak}`;
 
     console.log("Routing directionlite query to:", baiduUrl);

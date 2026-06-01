@@ -12,7 +12,7 @@ export async function onRequestGet(context) {
       });
     }
 
-    const ak = context.env.BAIDU_MAP_AK || context.env.VITE_BAIDU_MAP_AK || "MAyRHX2nmGjYgive3WmBoyqM3WXGh66U";
+    const ak = context.env.BAIDU_MAP_AK || context.env.VITE_BAIDU_MAP_AK || "B5Mp8mMZu5HN1yV0m9rBScBEusT7HHcC";
     const baiduUrl = `https://api.map.baidu.com/place/v2/suggestion?query=${encodeURIComponent(query)}&region=${encodeURIComponent(region)}&city_limit=${encodeURIComponent(city_limit)}&output=json&ak=${ak}`;
 
     const response = await fetch(baiduUrl, {

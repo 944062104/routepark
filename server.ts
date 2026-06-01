@@ -49,7 +49,7 @@ async function startServer() {
         ip = "111.206.214.37"; // Beijing UNICOM test IP fallback
       }
 
-      const ak = process.env.BAIDU_MAP_AK || process.env.VITE_BAIDU_MAP_AK || "MAyRHX2nmGjYgive3WmBoyqM3WXGh66U";
+      const ak = process.env.BAIDU_MAP_AK || process.env.VITE_BAIDU_MAP_AK || "B5Mp8mMZu5HN1yV0m9rBScBEusT7HHcC";
       const baiduUrl = `https://api.map.baidu.com/location/ip?ip=${encodeURIComponent(ip)}&coor=bd09ll&ak=${ak}`;
 
       console.log(`[iplocate] Querying Baidu IP Locate for: ${ip}`);
@@ -86,7 +86,7 @@ async function startServer() {
         return res.status(400).json({ status: 400, message: "Missing lat or lng" });
       }
 
-      const ak = process.env.BAIDU_MAP_AK || process.env.VITE_BAIDU_MAP_AK || "MAyRHX2nmGjYgive3WmBoyqM3WXGh66U";
+      const ak = process.env.BAIDU_MAP_AK || process.env.VITE_BAIDU_MAP_AK || "B5Mp8mMZu5HN1yV0m9rBScBEusT7HHcC";
       const baiduUrl = `https://api.map.baidu.com/reverse_geocoding/v3/?ak=${ak}&output=json&coordtype=wgs84ll&location=${lat},${lng}`;
 
       console.log(`[geodecode] Querying ${lat},${lng}`);
@@ -119,7 +119,7 @@ async function startServer() {
         return res.status(400).json({ status: 400, message: "Missing origin or destination" });
       }
 
-      const ak = process.env.BAIDU_MAP_AK || process.env.VITE_BAIDU_MAP_AK || "MAyRHX2nmGjYgive3WmBoyqM3WXGh66U";
+      const ak = process.env.BAIDU_MAP_AK || process.env.VITE_BAIDU_MAP_AK || "B5Mp8mMZu5HN1yV0m9rBScBEusT7HHcC";
       const baiduUrl = `https://api.map.baidu.com/directionlite/v1/driving?origin=${encodeURIComponent(origin)}&destination=${encodeURIComponent(destination)}&ak=${ak}`;
 
       console.log(`[directionlite] Routing ${origin} -> ${destination}`);
@@ -152,7 +152,7 @@ async function startServer() {
         return res.status(400).json({ status: 400, message: "Missing origin or destination" });
       }
 
-      const ak = process.env.BAIDU_MAP_AK || process.env.VITE_BAIDU_MAP_AK || "MAyRHX2nmGjYgive3WmBoyqM3WXGh66U";
+      const ak = process.env.BAIDU_MAP_AK || process.env.VITE_BAIDU_MAP_AK || "B5Mp8mMZu5HN1yV0m9rBScBEusT7HHcC";
 
       const getHaversineDistance = (lat1: number, lon1: number, lat2: number, lon2: number) => {
         const R = 6371; // Earth radius in km
@@ -232,7 +232,7 @@ async function startServer() {
         return res.json({ status: 0, result: [] });
       }
 
-      const ak = process.env.BAIDU_MAP_AK || process.env.VITE_BAIDU_MAP_AK || "MAyRHX2nmGjYgive3WmBoyqM3WXGh66U";
+      const ak = process.env.BAIDU_MAP_AK || process.env.VITE_BAIDU_MAP_AK || "B5Mp8mMZu5HN1yV0m9rBScBEusT7HHcC";
       const baiduUrl = `https://api.map.baidu.com/place/v2/suggestion?query=${encodeURIComponent(query)}&region=${encodeURIComponent(region)}&city_limit=${encodeURIComponent(city_limit)}&output=json&ak=${ak}`;
 
       console.log(`[suggest] Suggesting search query: ${query} within region: ${region} (city_limit: ${city_limit})`);

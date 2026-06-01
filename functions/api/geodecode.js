@@ -12,7 +12,7 @@ export async function onRequestGet(context) {
       });
     }
 
-    const ak = context.env.BAIDU_MAP_AK || context.env.VITE_BAIDU_MAP_AK || "De3bd311138db99321e16b9b3e643b06";
+    const ak = context.env.BAIDU_MAP_AK || context.env.VITE_BAIDU_MAP_AK || "B5Mp8mMZu5HN1yV0m9rBScBEusT7HHcC";
     // Baidu reverse geocoding expects location in "lat,lng" format
     const baiduUrl = `https://api.map.baidu.com/reverse_geocoding/v3/?ak=${ak}&output=json&coordtype=wgs84ll&location=${lat},${lng}`;
 
