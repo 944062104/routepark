@@ -418,14 +418,27 @@ export default function Calculator() {
     return () => clearTimeout(delayDebounceFn);
   }, [startLoc, endLoc, startCoords, endCoords, status]);
 
-  // Perform Server Suggestion query
-  const handleStartSearch = async (value: string) => {
+  // Perform Server Suggestion query after 2-second typing pause
+  const handleStartSearch = (value: string) => {
     setStartLoc(value);
     setStartCoords(null);
     if (!value.trim()) {
       setStartSuggestions([]);
-      return;
+      setShowStartSugs(false);
     }
+  };
+
+  const handleEndSearch = (value: string) => {
+    setEndLoc(value);
+    setEndCoords(null);
+    if (!value.trim()) {
+      setEndSuggestions([]);
+      setShowEndSugs(false);
+    }
+  };
+
+  const triggerStartSearch = async (value: string) => {
+    if (!value.trim()) return;
 
     try {
       const rawArea = resolvedIPDetail?.area || "";
@@ -459,13 +472,8 @@ export default function Calculator() {
     setShowStartSugs(true);
   };
 
-  const handleEndSearch = async (value: string) => {
-    setEndLoc(value);
-    setEndCoords(null);
-    if (!value.trim()) {
-      setEndSuggestions([]);
-      return;
-    }
+  const triggerEndSearch = async (value: string) => {
+    if (!value.trim()) return;
 
     try {
       const rawArea = resolvedIPDetail?.area || "";
@@ -498,6 +506,27 @@ export default function Calculator() {
     }
     setShowEndSugs(true);
   };
+
+  // 2-second debounce implementation for user input typing completion
+  useEffect(() => {
+    if (!startLoc.trim() || startCoords) {
+      return;
+    }
+    const timer = setTimeout(() => {
+      triggerStartSearch(startLoc);
+    }, 2000);
+    return () => clearTimeout(timer);
+  }, [startLoc, startCoords]);
+
+  useEffect(() => {
+    if (!endLoc.trim() || endCoords) {
+      return;
+    }
+    const timer = setTimeout(() => {
+      triggerEndSearch(endLoc);
+    }, 2000);
+    return () => clearTimeout(timer);
+  }, [endLoc, endCoords]);
 
   const selectStartSuggestion = (item: SuggestionItem) => {
     const displayValue = (item.province ? `${item.province}${item.city} - ` : "") + item.title;
@@ -893,7 +922,7 @@ export default function Calculator() {
                       ))
                     ) : (
                       <div className="px-4 py-3 text-center">
-                        <div className="text-xs text-slate-550 font-semibold">未找到匹配的推荐。可直接在地图上精准点击落点，或继续输入。</div>
+                        <div className="text-xs text-slate-550 font-semibold">未找到匹配的推荐。请核对拼写或继续输入详细地址。</div>
                       </div>
                     )}
                   </div>
@@ -906,8 +935,8 @@ export default function Calculator() {
                   <span className="block text-xs font-bold text-slate-500 uppercase tracking-wider">
                     📍 实时路线 3D 卫星及重载路网测绘 (WebGL)
                   </span>
-                  <span className="text-[10px] text-blue-600 font-extrabold animate-pulse">
-                    💡 提示：在下方地图中任意点击即可精准定点
+                  <span className="text-[10px] text-slate-500 font-bold">
+                    💡 提示：地图仅用于查看行驶路线与距离
                   </span>
                 </div>
                 <BaiduMap 

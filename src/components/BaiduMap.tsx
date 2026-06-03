@@ -127,52 +127,6 @@ export default function BaiduMap({
         const defaultPoint = new BMapGL.Point(114.2582, 30.5815); // Wuhan
         map.centerAndZoom(defaultPoint, 6);
 
-        // Register map clicking listener for direct geographic coordinate selection (prevents location input typos entirely)
-        map.addEventListener("click", (e: any) => {
-          if (!e.latlng && !e.point) return;
-          const p = e.latlng || e.point;
-          
-          const geocoder = new BMapGL.Geocoder();
-          geocoder.getLocation(p, (res: any) => {
-            if (res) {
-              const address = res.address;
-              const surroundingPois = res.surroundingPois || [];
-              
-              let displayName = address;
-              if (surroundingPois && surroundingPois.length > 0) {
-                const closestPoi = surroundingPois[0];
-                displayName = `${res.addressComponents.province || ""}${res.addressComponents.city || ""}${(res.addressComponents.district || "")} - ${closestPoi.title}`;
-              } else if (res.business) {
-                displayName = `${res.addressComponents.province || ""}${res.addressComponents.city || ""}${(res.addressComponents.district || "")} - ${res.business.split(',')[0]}`;
-              }
-
-              // Create gorgeous popup inside the 3D canvas
-              const infoWindowHtml = `
-                <div style="padding: 10px; font-family: system-ui, -apple-system, sans-serif; font-size: 13px; line-height: 1.5; color: #1e293b; min-width: 230px; box-sizing: border-box;">
-                  <div style="font-weight: 850; color: #000; margin-bottom: 5px; font-size: 13.5px; display: flex; align-items: center; gap: 4px;">
-                    🎯 地图精准坐标选点
-                  </div>
-                  <div style="color: #475569; font-size: 11.5px; border-bottom: 1px solid #f1f5f9; padding-bottom: 8px; margin-bottom: 10px; word-break: break-all; font-weight: 600; line-height: 1.4;">
-                    ${displayName}
-                  </div>
-                  <div style="display: flex; gap: 8px;">
-                    <button onclick="window.handleSetLocFromMap && window.handleSetLocFromMap('start', ${p.lat}, ${p.lng}, '${displayName.replace(/'/g, "\\'")}')" style="flex: 1; padding: 7px 5px; background-color: #1058D1; color: white; font-weight: bold; font-size: 11px; border: none; border-radius: 6px; cursor: pointer; transition: all 0.15s; outline: none; box-shadow: 0 1px 3px rgba(16,88,209,0.25);">🚩 设为出发点</button>
-                    <button onclick="window.handleSetLocFromMap && window.handleSetLocFromMap('end', ${p.lat}, ${p.lng}, '${displayName.replace(/'/g, "\\'")}')" style="flex: 1; padding: 7px 5px; background-color: #D90429; color: white; font-weight: bold; font-size: 11px; border: none; border-radius: 6px; cursor: pointer; transition: all 0.15s; outline: none; box-shadow: 0 1px 3px rgba(217,4,41,0.25);">🏁 设为目的地</button>
-                  </div>
-                </div>
-              `;
-
-              const infoWindow = new BMapGL.InfoWindow(infoWindowHtml, {
-                width: 250,
-                height: 125,
-                title: ""
-              });
-
-              map.openInfoWindow(infoWindow, p);
-            }
-          });
-        });
-
         mapInstanceRef.current = map;
       } catch (err) {
         console.error("Failed to initialize Baidu Map GL instance:", err);
@@ -186,80 +140,6 @@ export default function BaiduMap({
     // Clear previous markers and lines
     map.clearOverlays();
     setRoutingStatus("idle");
-
-    // If we have active suggestions being searched, show them on the map as interactive markers
-    if (activeSuggestions && activeSuggestions.length > 0) {
-      const points: any[] = [];
-      const BMapGL = window.BMapGL;
-      
-      activeSuggestions.forEach((item, index) => {
-        if (item.location && item.location.lat && item.location.lng) {
-          const pt = new BMapGL.Point(item.location.lng, item.location.lat);
-          points.push(pt);
-
-          const marker = new BMapGL.Marker(pt, {
-            title: item.title
-          });
-          map.addOverlay(marker);
-
-          const labelText = `${index + 1}. ${item.title.substring(0, 10)}${item.title.length > 10 ? "..." : ""}`;
-          const label = new BMapGL.Label(labelText, {
-            position: pt,
-            offset: new BMapGL.Size(-50, -40)
-          });
-          label.setStyle({
-            color: activeType === "start" ? "#1058D1" : "#D90429",
-            fontSize: "11px",
-            border: "1px solid #cbd5e1",
-            borderRadius: "6px",
-            padding: "3px 6px",
-            backgroundColor: "white",
-            fontWeight: "bold",
-            boxShadow: "0 2px 6px rgba(0,0,0,0.15)"
-          });
-          map.addOverlay(label);
-
-          marker.addEventListener("click", () => {
-            const displayName = item.title;
-            const displayAddr = item.address || `${item.province || ""}${item.city || ""}`;
-            const infoWindowHtml = `
-              <div style="padding: 10px; font-family: system-ui, -apple-system, sans-serif; font-size: 13px; line-height: 1.5; color: #1e293b; min-width: 230px; box-sizing: border-box;">
-                <div style="font-weight: 850; color: #000; margin-bottom: 5px; font-size: 13.5px; display: flex; align-items: center; gap: 4px;">
-                  🎯 搜索定位结果 #${index + 1}
-                </div>
-                <div style="font-weight: 700; color: #1e293b; font-size: 12.5px; line-height: 1.3">
-                  ${displayName}
-                </div>
-                <div style="color: #64748b; font-size: 11px; border-bottom: 1px solid #f1f5f9; padding-bottom: 8px; margin-bottom: 10px; word-break: break-all; line-height: 1.4;">
-                  ${displayAddr}
-                </div>
-                <div style="display: flex; gap: 8px;">
-                  <button onclick="window.handleSetLocFromMap && window.handleSetLocFromMap('start', ${item.location.lat}, ${item.location.lng}, '${displayName.replace(/'/g, "\\'")}')" style="flex: 1; padding: 7px 5px; background-color: #1058D1; color: white; font-weight: bold; font-size: 11px; border: none; border-radius: 6px; cursor: pointer; transition: all 0.15s; outline: none; box-shadow: 0 1px 3px rgba(16,88,209,0.25);">🚩 设为出发点</button>
-                  <button onclick="window.handleSetLocFromMap && window.handleSetLocFromMap('end', ${item.location.lat}, ${item.location.lng}, '${displayName.replace(/'/g, "\\'")}')" style="flex: 1; padding: 7px 5px; background-color: #D90429; color: white; font-weight: bold; font-size: 11px; border: none; border-radius: 6px; cursor: pointer; transition: all 0.15s; outline: none; box-shadow: 0 1px 3px rgba(217,4,41,0.25);">🏁 设为目的地</button>
-                </div>
-              </div>
-            `;
-
-            const infoWindow = new BMapGL.InfoWindow(infoWindowHtml, {
-              width: 250,
-              height: 135,
-              title: ""
-            });
-            map.openInfoWindow(infoWindow, pt);
-          });
-        }
-      });
-
-      if (points.length > 0) {
-        map.setViewport(points);
-        setTimeout(() => {
-          if (map.getZoom() > 16) {
-            map.setZoom(14);
-          }
-        }, 150);
-      }
-      return;
-    }
 
     const geocodeAndRoute = async () => {
       setRoutingStatus("routing");
